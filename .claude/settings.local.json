@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx shadcn@canary init --defaults --yes)",
+      "Bash(bunx shadcn@canary init --defaults --yes)",
+      "Bash(bunx --bun shadcn@latest init)",
+      "Bash(bunx --bun shadcn@latest init --defaults --yes)",
+      "Bash(bunx --bun shadcn@latest init -d)"
+    ]
+  }
+}
