@@ -4,11 +4,11 @@ Update this file whenever the current phase, active feature, or implementation s
 
 ## Current Phase
 
-- **01 – Design System** ✅ Completed
+- **02 – Editor** 🚧 In Progress
 
 ## Current Goal
 
-- Prepare for Phase 02: Database schema, Prisma setup, and Clerk authentication.
+- Build the core editor workspace: editor navbar, project sidebar, and dialog pattern.
 
 ## Completed
 
@@ -25,34 +25,36 @@ Update this file whenever the current phase, active feature, or implementation s
   - `Textarea`
   - `ScrollArea`
 - [x] Configure `globals.css` with Tailwind v4 + shadcn theme tokens.
+- [x] Configure `globals.css` with custom dark theme variables from ui-context.md.
 
 ## In Progress
 
-- None yet.
+- [x] Create `components/editor/editor-navbar.tsx` — Editor Navbar
+- [x] Create `components/editor/project-sidebar.tsx` — Project Sidebar
+- [x] Dialog pattern ready (styled via globals.css variables)
 
 ## Next Up
 
-- **02 – Database & Auth**
+- **03 – Database & Auth**
   - Set up Prisma schema for projects, collaborators, specs, and task runs.
   - Configure Clerk authentication and route protection.
   - Add project creation and ownership logic.
-- **03 – Collaborative Canvas**
+- **04 – Collaborative Canvas**
   - Integrate Liveblocks for real-time rooms and presence.
   - Integrate React Flow for node/edge canvas editing.
   - Implement canvas snapshot persistence to Vercel Blob.
-- **04 – Starter System Designs**
+- **05 – Starter System Designs**
   - Create prebuilt template library (monolith, microservices, event-driven, serverless, etc.).
   - Implement template import into active canvas room.
-- **05 – AI Architecture Generation**
+- **06 – AI Architecture Generation**
   - Set up Trigger.dev background tasks.
   - Implement AI design generation from natural language prompts.
-- **06 – Spec Generation**
+- **07 – Spec Generation**
   - Implement Markdown spec generation from canvas graph.
   - Persist specs to Vercel Blob and link to project records.
 
 ## Open Questions
 
-- Should the custom Ghost AI dark theme variables from `ui-context.md` replace the default shadcn tokens in `globals.css` now, or wait until canvas implementation?
 - Do we need additional shadcn components (e.g., `DropdownMenu`, `Tooltip`, `Avatar`) before moving to the canvas phase?
 
 ## Architecture Decisions
@@ -60,8 +62,9 @@ Update this file whenever the current phase, active feature, or implementation s
 - Use shadcn/ui base-nova style as the component foundation.
 - Keep `components/ui/*` files unmodified after generation to avoid breaking upstream component behavior.
 - Tailwind CSS v4 with `@theme inline` for token mapping.
+- Editor sidebar uses floating overlay pattern (absolute positioning over canvas, no layout shift).
 
 ## Session Notes
 
 - Design system scaffolding is fully in place. All components in `components/ui/` are default shadcn implementations and should not be edited directly.
-- The next session should begin by deciding whether to apply the custom dark theme from `ui-context.md` immediately or proceed to database/auth setup.
+- Phase 02 Editor components delivered: EditorNavbar (fixed top bar with sidebar toggle) and ProjectSidebar (floating left panel with Tabs, slide animation, and new-project button). Dialog pattern confirmed compatible with the dark theme.
